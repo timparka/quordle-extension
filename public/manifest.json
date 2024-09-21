@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Quordle Solver",
+  "version": "1.0",
+  "description": "Solve Quordle puzzles effortlessly!",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://www.merriam-webster.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.merriam-webster.com/games/quordle/*"],
+      "js": ["content.js"]
+    }
+  ],  
+  "web_accessible_resources": [
+    {
+      "resources": ["word-bank.txt"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
